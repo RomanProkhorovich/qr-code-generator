@@ -9,7 +9,9 @@ public class GenerateQrVo {
     private int onColor;
     @JsonProperty(defaultValue = "0xFFFFFF")
     private int offColor;
+    @JsonProperty(defaultValue = "50")
     private int width;
+    @JsonProperty(defaultValue = "50")
     private int height;
 
     public GenerateQrVo() {
