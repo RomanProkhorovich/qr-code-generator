@@ -31,7 +31,7 @@ public class QrCodeGenerator {
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         try {
             BitMatrix bitMatrix = qrCodeWriter.encode(content, BarcodeFormat.QR_CODE, width, height, hints);
-            filename = "qrcodes/" + (filename == null ? getCurrentDateTime() : filename) + ".png";
+            filename = (filename == null ? getCurrentDateTime() : filename) + ".png";
             filename = FileNameUtils.safeFileName(filename);
 
             MatrixToImageConfig config = getConfig(onColor, offColor);
@@ -42,7 +42,7 @@ public class QrCodeGenerator {
             try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
                 ImageIO.write(image, "PNG", baos);
                 byteArray = baos.toByteArray();
-                Files.write(Path.of(filename), byteArray);
+                Files.write(Path.of("qrcodes/" + filename), byteArray);
             }
             return new FileWrapperVo(filename, ".png", byteArray);
         } catch (WriterException | IOException e) {
