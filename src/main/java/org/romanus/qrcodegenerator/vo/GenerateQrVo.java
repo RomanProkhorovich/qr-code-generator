@@ -1,18 +1,14 @@
 package org.romanus.qrcodegenerator.vo;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.awt.*;
 
 public class GenerateQrVo {
     private String content;
     private String filename;
-    @JsonProperty(defaultValue = "0x000000")
-    private int onColor;
-    @JsonProperty(defaultValue = "0xFFFFFF")
-    private int offColor;
-    @JsonProperty(defaultValue = "50")
-    private int width;
-    @JsonProperty(defaultValue = "50")
-    private int height;
+    private int onColor = Color.BLACK.getRGB();
+    private int offColor =  Color.WHITE.getRGB();
+    private int width = 50;
+    private int height = 50;
 
     public GenerateQrVo() {
     }
